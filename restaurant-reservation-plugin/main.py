@@ -42,7 +42,7 @@ async def search():
     list_rest = [{"cafename": "カフェかば殿", "2023/07/01 18:00-19:00": "空き"}]
 
     list_search = list(filter(lambda item : item['cafename'] == query, list_rest))
-    dict_search = {}
+    dict_search = {"Cafe not found"}
     if len(list_search) > 0:
         dict_search = list_search[0]
     return quart.Response(response=json.dumps(dict_search, ensure_ascii=False), status=200)
